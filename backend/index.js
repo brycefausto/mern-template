@@ -5,7 +5,7 @@ import cors from "cors";
 import EmployeeRoute from "./routes/EmployeeRoute.js";
  
 const app = express();
-mongoose.connect('mongodb://localhost:27017/mern_exercise',{
+mongoose.connect('mongodb://127.0.0.1:27017/mern_exercise',{
     useNewUrlParser: true,
     useUnifiedTopology: true
 });

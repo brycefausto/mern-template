@@ -15,7 +15,7 @@ function EditEmployee() {
   }, [])
  
   const getById = async () => {
-    const response = await axios.get(`http://localhost:5000/users/${id}`);
+    const response = await axios.get(`http://localhost:5000/employees/${id}`);
     setName(response.data.name);
     setEmail(response.data.email);
     setGender(response.data.gender);
