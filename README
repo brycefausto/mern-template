@@ -1,3 +1,6 @@
+To install application type the following in console:
+npm run postinstall
+
 To start application type the following in console:
 npm run start-server
 npm run strt-frontend
