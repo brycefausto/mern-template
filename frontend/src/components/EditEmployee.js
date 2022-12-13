@@ -9,16 +9,21 @@ function EditEmployee() {
   const [jobPosition, setJobPosition] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
- 
+
   useEffect(() => {
     getById();
-  }, [])
- 
+  }, []);
+
   const getById = async () => {
-    const response = await axios.get(`http://localhost:5000/employees/${id}`);
-    setName(response.data.name);
-    setEmail(response.data.email);
-    setGender(response.data.gender);
+    try {
+      const { data } = await axios.get(`http://localhost:5000/employees/${id}`);
+      setName(data.name);
+      setEmail(data.email);
+      setGender(data.gender);
+      setJobPosition(data.jobPosition);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const save = async (e) => {
@@ -48,7 +53,7 @@ function EditEmployee() {
           id="input1"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          />
+        />
       </div>
       <div className="mb-3">
         <label htmlFor="input2" className="form-label">
